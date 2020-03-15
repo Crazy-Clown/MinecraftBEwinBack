@@ -44,11 +44,10 @@ if exist Backup.log (
     findstr /c:"%BackupName%" Backup.log || >> Backup.log echo %BackupName%
     ) else (
 		> Backup.log %BackupName%
-    )
+)
 
 for /f "skip=%revisions% delims=" %%A in ('type Backup.log ^| sort /r') do (
 		del "%%A mcbackup.7z.*"
     )
-	
     popd
 )
